@@ -59,10 +59,12 @@ app.use(errorHandler);
 
 
 //connect to mongodb
-const dbURI = process.env.MONGO_URI_PRO || process.env.MONGO_URI || process.env.MONGO_URI_DEV;
+const dbURI = process.env.NODE_ENV === 'development' 
+    ? (process.env.MONGO_URI_DEV || process.env.MONGO_URI) 
+    : (process.env.MONGO_URI_PRO || process.env.MONGO_URI || process.env.MONGO_URI_DEV);
 
 mongoose.connect(dbURI)
-    .then(() => console.log('✅ MongoDB connected successfully'))
+    .then(() => console.log(`✅ MongoDB connected successfully to ${process.env.NODE_ENV === 'development' ? 'Local' : 'Cloud'} DB`))
     .catch(err => console.error('❌ Connection error:', err));
 
 
