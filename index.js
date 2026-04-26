@@ -59,8 +59,10 @@ app.use(errorHandler);
 
 
 //connect to mongodb
-mongoose.connect(process.env.NODE_ENV == "development" ? process.env.MONGO_URI_DEV : process.env.MONGO_URI_PRO)
-    .then(() => console.log('✅ MongoDB connected locally'))
+const dbURI = process.env.MONGO_URI_PRO || process.env.MONGO_URI || process.env.MONGO_URI_DEV;
+
+mongoose.connect(dbURI)
+    .then(() => console.log('✅ MongoDB connected successfully'))
     .catch(err => console.error('❌ Connection error:', err));
 
 
