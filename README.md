@@ -1,8 +1,6 @@
-[] Github initialization
-[✔️] MongoDb Atlas
-[] Render deployment
-[✔️] Enviroment variables
-[✔️] Git Ignore
-
-
-# mentership-api
+- [✅] Github initialization
+- [✅] MongoDb Atlas
+- [✅] Render deployment
+- [✅] Environment variables
+- [✅] Git ignore
+- [✅] White list mongoDB Ip Address
